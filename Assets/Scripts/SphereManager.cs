@@ -7,14 +7,14 @@ public class SphereManager : MonoBehaviour
     public GameObject[] spheres;
     private int currentSphere;
     [SerializeField] private AudioSource audioSource;
-    private rhythmClick _rhythmClick;
+    private RhythmClick _rhythmClick;
     private float awardScore, maxPoints = 100, currentScore, progress;
     public int maxMissTiming = 3;
 
     private void Start()
     {
         currentSphere = 0;
-        _rhythmClick = spheres[0].GetComponent<rhythmClick>();
+        _rhythmClick = spheres[0].GetComponent<RhythmClick>();
     }
 
     void Update(){
@@ -29,7 +29,7 @@ public class SphereManager : MonoBehaviour
         if(currentSphere < spheres.Length)
         {
             spheres[currentSphere].SetActive(false);
-            _rhythmClick = spheres[currentSphere].GetComponent<rhythmClick>();
+            _rhythmClick = spheres[currentSphere].GetComponent<RhythmClick>();
             spheres[++currentSphere].SetActive(true);
 
             if(checkRange(progress, _rhythmClick.clickProcent, maxMissTiming)){
